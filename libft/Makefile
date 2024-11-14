@@ -42,6 +42,13 @@ FILES			=	is/ft_isalnum is/ft_isdigit is/ft_isalpha				\
 					math/ft_intlen math/ft_uintlen math/ft_hexlen			\
 					math/ft_abs												\
 \
+					list/ft_lstnew											\
+					list/ft_lstsize											\
+					list/ft_lstlast list/ft_lstsecond_to_last				\
+					list/ft_lstadd_front list/ft_lstadd_back				\
+					list/ft_lstdelone list/ft_lstclear						\
+					list/ft_lstiter list/ft_lstmap							\
+\
 					printf/ft_printf										\
 					printf/ft_printf_struct_init							\
 					printf/ft_printf_str_utils								\
@@ -57,16 +64,6 @@ FILES			=	is/ft_isalnum is/ft_isdigit is/ft_isalpha				\
 
 SRC				=	$(addsuffix .c, $(FILES))
 OBJ				=	$(addsuffix .o, $(FILES))
-
-FILES_BONUS		=	list/ft_lstnew_bonus									\
-					list/ft_lstsize_bonus list/ft_lstlast_bonus				\
-					list/ft_lstadd_front_bonus list/ft_lstadd_back_bonus	\
-					list/ft_lstdelone_bonus list/ft_lstclear_bonus			\
-					list/ft_lstiter_bonus list/ft_lstmap_bonus				\
-\
-
-SRC_BONUS		=	$(addsuffix .c, $(FILES_BONUS))
-OBJ_BONUS		=	$(addsuffix .o, $(FILES_BONUS))
 
 # TEST
 
@@ -141,10 +138,6 @@ all:			$(NAME)
 $(NAME):		$(OBJ)
 				$(AR) $(ARFLAGS) $(NAME) $^
 				echo -e '$(LIGHT_GREEN) \tCompiled$(DARK_GREEN) $(NAME)$(LIGHT_GREEN) that include$(GREEN) $(FILES)'
-
-bonus:			$(OBJ) $(OBJ_BONUS)
-				$(AR) $(ARFLAGS) $(NAME) $^
-				echo -e '$(LIGHT_GREEN) \tCompiled$(DARK_GREEN) $(NAME)$(LIGHT_GREEN) that include$(GREEN) $(FILES)$(FILES_BONUS)'
 
 clean:
 				rm -f $(OBJ) $(OBJ_BONUS) $(OBJ_TEST) $(OBJ_TEST_B)

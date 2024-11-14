@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 02:42:07 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/13 21:53:23 by anoteris         ###   ########.fr       */
+/*   Created: 2024/11/13 22:00:14 by anoteris          #+#    #+#             */
+/*   Updated: 2024/11/14 01:50:19 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_list **top)
+static void	reverse_rotate(t_list **top)
 {
-	t_list	*second ;
+	t_list *second_to_last ;
 
 	if (!(*top) || !(*top)->next)
 		return ;
-	second = (*top)->next ;
-	(*top)->next = second->next ;
-	second->next = (*top) ;
-	(*top) = second ;
+	second_to_last = ft_lstsecond_to_last(*top);
+	second_to_last->next->next = (*top);
+	(*top) = second_to_last->next ;
+	second_to_last->next = NULL ;
 }
 
-void	sa(t_list **top_a)
+void	rra(t_list **top_a)
 {
-	swap(top_a);
-	ft_printf("sa\n");
+	reverse_rotate(top_a);
+	ft_printf("rra\n");
 }
 
-void	sb(t_list **top_b)
+void	rrb(t_list **top_b)
 {
-	swap(top_b);
-	ft_printf("sb\n");
+	reverse_rotate(top_b);
+	ft_printf("rrb\n");
 }
 
-void	ss(t_list **top_a, t_list **top_b)
+void	rrr(t_list **top_a, t_list **top_b)
 {
-	swap(top_a);
-	swap(top_b);
-	ft_printf("ss\n");
+	reverse_rotate(top_a);
+	reverse_rotate(top_b);
+	ft_printf("rrr\n") ;
 }

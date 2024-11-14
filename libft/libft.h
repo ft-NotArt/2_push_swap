@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 07:14:00 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/12 20:37:33 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/14 01:35:42 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -490,6 +490,14 @@ int			ft_lstsize(t_list *lst);
  * @author NotArt
  */
 t_list		*ft_lstlast(t_list *lst);
+
+/**
+ * @name lstsecond_to_last
+ * @param lst The node from which to go to right before the tail of the list
+ * @return The second to last node of the list
+ * @author NotArt
+ */
+t_list	*ft_lstsecond_to_last(t_list *lst);
 
 /**
  * @name lstadd_back
