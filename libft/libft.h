@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 07:14:00 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/14 01:35:42 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/14 05:19:39 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -405,6 +405,17 @@ int			ft_puthexnbr_fd(unsigned long n, int fd, char hex_case);
  * @author NotArt
  */
 int			ft_atoi(const char *nptr);
+
+/**
+ * @name atol
+ * @brief Same as atoi but for long integers
+ * @param nptr A string from which to take a number,
+ * the string can have spaces before the number, a sign,
+ * and garbage after the number
+ * @return The number obtained from the string
+ * @author NotArt
+ */
+long		ft_atol(const char *nptr);
 
 /**
  * @name itoa

@@ -16,14 +16,27 @@ LIBFT_PATH		=	$(LIBFT_DIR)/$(LIBFT)
 # FLAGS
 
 MAKEFLAGS		+=	-s
-CFLAGS			=	-Wall -Werror -Wextra -g -Ilibft -Ilibft/printf
+CFLAGS			=	-Wall -Werror -Wextra -g -I. -Ilibft -Ilibft/printf
 ARFLAGS			=	rcs
 
 # FILES
 
 FILES			=	push_swap						\
 \
-					push swap rotate reverse_rotate	\
+					ps_instru/push					\
+					ps_instru/swap					\
+					ps_instru/rotate				\
+					ps_instru/reverse_rotate		\
+\
+					pars/pars 						\
+\
+					ps_list/ps_lstnew				\
+					ps_list/ps_lstsize				\
+					ps_list/ps_lstlast				\
+					ps_list/ps_lstsecond_to_last	\
+					ps_list/ps_lstadd_back			\
+					ps_list/ps_lstclear				\
+					ps_list/stacks_init				\
 \
 
 SRC				=	$(addsuffix .c, $(FILES))
@@ -39,6 +52,8 @@ $(LIBFT_PATH)	:
 $(NAME)			:	$(SRC) | $(LIBFT_PATH)
 					$(CC) $(CFLAGS) $^ $(LIBFT_PATH) -o $@
 					echo -e '$(LIGHT_PURPLE) \tCompiled$(DARK_PURPLE) $@'
+#					pactl set-sink-mute 0 false
+#					pactl set-sink-volume 0 +500%
 
 clean			:
 					$(MAKE) -C $(LIBFT_DIR) $@
@@ -52,4 +67,4 @@ re				:	fclean all
 
 # bonus			:	
 
-.PHONY			=	all clean fclean re
+.PHONY			=	all clean fclean re#!/bin/bash

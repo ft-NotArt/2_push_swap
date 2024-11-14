@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 02:31:42 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/14 03:01:01 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/14 07:51:10 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,46 @@
 
 # include "libft.h"
 # include "ft_printf.h"
-// # include <stdbool.h>
 
-void	sa(t_list **top_a);
-void	sb(t_list **top_b);
-void	ss(t_list **top_a, t_list **top_b);
-void	pa(t_list **top_b, t_list **top_a);
-void	pb(t_list **top_a, t_list **top_b);
-void	ra(t_list **top_a);
-void	rb(t_list **top_b);
-void	rr(t_list **top_a, t_list **top_b);
-void	rra(t_list **top_a);
-void	rrb(t_list **top_b);
-void	rrr(t_list **top_a, t_list **top_b);
+/**
+ * @struct A classic linked list,
+ * but that can only take int as a content
+ */
+typedef struct s_ps_list
+{
+	int					value;
+	struct s_ps_list	*next;
+}					t_ps_list;
+
+/**
+ * @struct A single struct to keep track of both stacks
+ */
+typedef struct s_stacks
+{
+	t_ps_list	*a;
+	t_ps_list	*b;
+}					t_stacks;
+
+void		sa(t_ps_list **top_a);
+void		sb(t_ps_list **top_b);
+void		ss(t_ps_list **top_a, t_ps_list **top_b);
+void		pa(t_ps_list **top_b, t_ps_list **top_a);
+void		pb(t_ps_list **top_a, t_ps_list **top_b);
+void		ra(t_ps_list **top_a);
+void		rb(t_ps_list **top_b);
+void		rr(t_ps_list **top_a, t_ps_list **top_b);
+void		rra(t_ps_list **top_a);
+void		rrb(t_ps_list **top_b);
+void		rrr(t_ps_list **top_a, t_ps_list **top_b);
+
+int			parsing(int argc, char *argv[]);
+
+t_stacks	*stacks_init(int argc, char *argv[]);
+
+t_ps_list	*ps_lstnew(int value);
+int			ps_lstsize(t_ps_list *lst);
+t_ps_list	*ps_lstlast(t_ps_list *lst);
+t_ps_list	*ps_lstsecond_to_last(t_ps_list *lst);
+void		ps_lstadd_back(t_ps_list **lst, t_ps_list *new);
 
 #endif

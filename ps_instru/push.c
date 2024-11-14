@@ -6,15 +6,15 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 03:37:48 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/13 21:01:27 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/14 06:50:58 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h" //FIXME: maybe could work with only the adress of the pointer to the head
 
-void	pa(t_list **top_b, t_list **top_a)
+void	pa(t_ps_list **top_b, t_ps_list **top_a)
 {
-	t_list	*second_b;
+	t_ps_list	*second_b;
 
 	if (!(*top_b))
 		return ;
@@ -25,9 +25,9 @@ void	pa(t_list **top_b, t_list **top_a)
 	ft_printf("pa\n") ;
 }
 
-void	pb(t_list **top_a, t_list **top_b)
+void	pb(t_ps_list **top_a, t_ps_list **top_b)
 {
-	t_list	*second_a;
+	t_ps_list	*second_a;
 
 	if (!(*top_a))
 		return ;

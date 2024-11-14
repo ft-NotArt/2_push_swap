@@ -38,7 +38,7 @@ FILES			=	is/ft_isalnum is/ft_isdigit is/ft_isalpha				\
 					fd/ft_putnbr_fd fd/ft_putunbr_fd						\
 					fd/ft_putlongnbr_fd fd/ft_puthexnbr_fd					\
 \
-					math/ft_atoi math/ft_itoa								\
+					math/ft_atoi math/ft_atol math/ft_itoa					\
 					math/ft_intlen math/ft_uintlen math/ft_hexlen			\
 					math/ft_abs												\
 \
