@@ -11,7 +11,7 @@ NAME			=	libft.a
 # FLAGS
 
 MAKEFLAGS		+=	-s
-CFLAGS			=	-Wall -Wextra -Werror -I. -g -D FD_MAX=$$(ulimit -n)
+CFLAGS			=	-Wall -Wextra -Werror -I. -g
 ARFLAGS			=	rcs
 
 # FILES

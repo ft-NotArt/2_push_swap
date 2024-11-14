@@ -6,15 +6,15 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 02:31:42 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/14 01:49:17 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/14 03:01:01 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
-# include "libft/printf/ft_printf.h" //TODO: replace relative paths by only header names and put -Ilibft -Iprintf in Makefile
+# include "libft.h"
+# include "ft_printf.h"
 // # include <stdbool.h>
 
 void	sa(t_list **top_a);
