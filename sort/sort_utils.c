@@ -6,13 +6,30 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 06:04:45 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/15 06:58:06 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 18:40:35 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	n_set(int size) //TODO: play with different n values to see what would be more efficient
+bool	is_sorted(t_ps_list *list)
+{
+	t_ps_list *current = list ;
+	int value = current->value ;
+
+	while (current->next)
+	{
+		current = current->next;
+		if (current->value < value)
+			return (false);
+		value = current->value;
+	}
+	return (true);
+	
+
+}
+
+int	set_offset(int size) //TODO: play with different n values to see what would be more efficient
 {
 	if (size <= 5)
 		return (1);
@@ -41,7 +58,7 @@ int	lst_get_index(t_ps_list *list, int value)
 	return (i);
 }
 
-bool	part_of_chunk(int value, int *sorted_array, int start, int end)
+bool	chunk_part(int value, int *sorted_array, int start, int end)
 {
 	return (value >= sorted_array[start]
 			&& value <= sorted_array[end]);

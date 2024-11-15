@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 02:31:42 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/15 06:54:03 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 18:40:53 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ typedef struct s_stacks
 {
 	t_ps_list	*a;
 	t_ps_list	*b;
+	int			*sorted;
+	int			start;
+	int			end;
 }					t_stacks;
 
 void		sa(t_ps_list **top_a);
@@ -61,9 +64,10 @@ void		ps_lstclear(t_ps_list **lst);
 
 int			*init_sorted_array(t_stacks *stacks, size_t size);
 
-void		magic_algorithm(t_stacks *stacks);
-int			n_set(int size);
-bool		part_of_chunk(int value, int *sorted_array, int start, int end);
+bool		is_sorted(t_ps_list *list);
+void		magic_algorithm(t_stacks *stacks, int nb_elem);
+int			set_offset(int size);
+bool		chunk_part(int value, int *sorted_array, int start, int end);
 int			lst_get_index(t_ps_list *list, int value);
 
 #endif
