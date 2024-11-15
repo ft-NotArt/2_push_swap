@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 01:56:54 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/15 03:34:18 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 05:43:49 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ static void	push_chunk(t_stacks *stacks, int *sorted_array, int start, int end)
 	i = 0 ;
 	while (i < elem_in_a)
 	{
-		if (stacks->a->value >= sorted_array[start] // should it be >= or > ?
+		if (stacks->a->value >= sorted_array[start]
 			&& stacks->a->value <= sorted_array[end])
 		{
 			pb(&stacks->a, &stacks->b);
-			if (stacks->b->value >= sorted_array[(start + end) / 2] // should it be >= or > ?
-				&& stacks->b->value <= sorted_array[end])
+			if (stacks->b->value >= sorted_array[start]
+				&& stacks->b->value <= sorted_array[(start + end) / 2])
 				rb(&stacks->b);
 		}
 		else
@@ -54,11 +54,11 @@ static void	sort_by_chunks(t_stacks *stacks, int size, int *sorted_array)
 	int			start ;
 	int			end ;
 
-	start = middle - offset ; // when initializing and changing those values,
+	start = middle - offset ;
 	if (start < 0)
 		start = 0 ;
-	end = middle + offset ; // beware of not setting start under 0 and end after size
-	if (end > (size - 1)) // It is size - 1 right ?
+	end = middle + offset ;
+	if (end > (size - 1))
 		end = (size - 1);
 	while (stacks->a)
 	{
@@ -68,7 +68,7 @@ static void	sort_by_chunks(t_stacks *stacks, int size, int *sorted_array)
 		if (start < 0)
 			start = 0 ;
 		end += offset ;
-		if (end > (size - 1)) // It is size - 1 right ?
+		if (end > (size - 1))
 			end = (size - 1);
 	}
 }
