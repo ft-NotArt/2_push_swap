@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 01:56:54 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/15 18:29:10 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 19:02:10 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static bool search_max(t_stacks *stacks, int size, int pos, int second_value)
 {
 	bool	found_second ;
 
-	// ft_printf("pos : %d, size : %d, second_value : %d\n", pos, size, second_value) ;
 	found_second = false ;
 	if (pos < (size - pos))
 	{
@@ -121,7 +120,6 @@ static void	sort_by_chunks(t_stacks *stacks, int size)
 	to_end = (size / 2) ;
 	while (stacks->a->next->next->next)
 	{
-		// printf("\nto_start : %d, start : %d | to_end : %d, end : %d\n", to_start, stacks->start, to_end, stacks->end);
 		push_node(stacks, &to_start, &to_end, size);
 		if (to_start == stacks->start)
 		{
@@ -140,7 +138,12 @@ static void	sort_by_chunks(t_stacks *stacks, int size)
 
 void	magic_algorithm(t_stacks *stacks, int nb_elem)
 {
-	sort_by_chunks(stacks, nb_elem);
-	sort_three_nodes(stacks);
-	sort_chunks(stacks, nb_elem - 3);
+	if (nb_elem == 2)
+		sa(&stacks->a);
+	else
+	{
+		sort_by_chunks(stacks, nb_elem);
+		sort_three_nodes(stacks);
+		sort_chunks(stacks, nb_elem - 3);
+	}
 }
