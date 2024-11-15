@@ -6,22 +6,35 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 01:56:54 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/15 05:43:49 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 07:15:33 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	n_set(int size) //TODO: play with different n values to see what would be more efficient
+static void	sort_chunks(t_stacks *stacks, int *sorted_array, int size)
 {
-	if (size <= 5)
-		return (1);
-	if (size <= 10)
-		return (5);
-	if (size <= 150)
-		return (8);
-	else
-		return (18);
+	int	target_value ;
+	int	pos ;
+
+	while (size)
+	{
+		target_value = sorted_array[size - 1] ;
+		pos = lst_get_index(stacks->b, target_value);
+		if (pos == 1)
+			sb(&stacks->b);
+		else
+		{
+			if (pos < (size - pos))
+				while (pos--)
+					rb(&stacks->b);
+			else
+				while (pos++ < size)
+					rrb(&stacks->b);
+		}
+		pa(&stacks->b, &stacks->a);
+		size-- ;
+	}
 }
 
 static void	push_chunk(t_stacks *stacks, int *sorted_array, int start, int end)
@@ -29,20 +42,27 @@ static void	push_chunk(t_stacks *stacks, int *sorted_array, int start, int end)
 	const int	elem_in_a = ps_lstsize(stacks->a);
 	int			i ;
 
-	i = 0 ;
-	while (i < elem_in_a)
+	i = -1 ;
+	while (++i < elem_in_a)
 	{
-		if (stacks->a->value >= sorted_array[start]
-			&& stacks->a->value <= sorted_array[end])
+		if (part_of_chunk(stacks->a->value, sorted_array, start, end))
 		{
 			pb(&stacks->a, &stacks->b);
-			if (stacks->b->value >= sorted_array[start]
-				&& stacks->b->value <= sorted_array[(start + end) / 2])
-				rb(&stacks->b);
+			if (part_of_chunk(stacks->b->value, sorted_array,
+				start, (start + end) / 2))
+			{
+				if (i < elem_in_a - 1
+					&& !part_of_chunk(stacks->a->value, sorted_array, start, end))
+				{
+					rr(&stacks->a, &stacks->b);
+					i++ ;
+				}
+				else
+					rb(&stacks->b);
+			}
 		}
 		else
 			ra(&stacks->a);
-		i++ ;
 	}
 }
 
@@ -62,7 +82,7 @@ static void	sort_by_chunks(t_stacks *stacks, int size, int *sorted_array)
 		end = (size - 1);
 	while (stacks->a)
 	{
-		ft_printf("\n\t\t-- n : %d, size : %d, middle : %d, offset : %d, start : %d, end : %d\n", n, size, middle, offset, start, end);
+		// ft_printf("\n\t\t-- n : %d, size : %d, middle : %d, offset : %d, start : %d, end : %d\n", n, size, middle, offset, start, end);
 		push_chunk(stacks, sorted_array, start, end);
 		start -= offset ;
 		if (start < 0)
@@ -75,15 +95,13 @@ static void	sort_by_chunks(t_stacks *stacks, int size, int *sorted_array)
 
 void	magic_algorithm(t_stacks *stacks)
 {
-	const int	a_size = ps_lstsize(stacks->a);
+	const int	nb_elem = ps_lstsize(stacks->a);
 	int			*sorted_array ;
 
-	sorted_array = init_sorted_array(stacks, a_size);
+	sorted_array = init_sorted_array(stacks, nb_elem);
 
-	for (int i = 0; i < a_size; i++)
-		ft_printf(">%d\n", sorted_array[i]);
+	sort_by_chunks(stacks, nb_elem, sorted_array);
+	sort_chunks(stacks, sorted_array, nb_elem);
 
-	sort_by_chunks(stacks, a_size, sorted_array);
-	
 	free(sorted_array);
 }

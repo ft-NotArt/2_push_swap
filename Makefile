@@ -40,6 +40,7 @@ FILES			=	push_swap						\
 \
 					sort/sort_array					\
 					sort/sort_stack					\
+					sort/sort_utils					\
 \
 
 SRC				=	$(addsuffix .c, $(FILES))

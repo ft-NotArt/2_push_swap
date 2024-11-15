@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 02:31:30 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/15 02:36:18 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 07:12:26 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,23 @@ void visu()
 	stacks_visu((heads->a), (heads->b)) ;
 }
 
+int	printf_sorted(t_ps_list *list)
+{
+	t_ps_list *current = list ;
+	int value = current->value ;
+
+	while (current->next)
+	{
+		current = current->next;
+		if (current->value < value)
+			return (ft_printf("\nNot sorted mon pote\n\n"));
+		value = current->value;
+	}
+	return (ft_printf("C'est carre bien sorted"));
+	
+
+}
+
 int main(int argc, char *argv[])
 {
 	t_stacks	*stacks ;
@@ -123,12 +140,13 @@ int main(int argc, char *argv[])
 	if (!stacks)
 		return (1);
 	
-	stacks_visu(stacks->a, stacks->b) ;
+	// stacks_visu(stacks->a, stacks->b) ;
 	
 	magic_algorithm(stacks);
 	
-	stacks_visu(stacks->a, stacks->b) ;
+	// stacks_visu(stacks->a, stacks->b) ;
 
+	// printf_sorted(stacks->a);
 
 	stacks_free(stacks);
 	return (0);
