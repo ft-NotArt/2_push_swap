@@ -40,6 +40,9 @@ FILES			=	push_swap						\
 \
 					sort/sort_array					\
 					sort/sort_stack					\
+					sort/sort_stage_one				\
+					sort/sort_stage_two				\
+					sort/sort_stage_three			\
 					sort/sort_utils					\
 \
 
@@ -56,8 +59,8 @@ $(LIBFT_PATH)	:
 $(NAME)			:	$(SRC) | $(LIBFT_PATH)
 					$(CC) $(CFLAGS) $^ $(LIBFT_PATH) -o $@
 					echo -e '$(LIGHT_PURPLE) \tCompiled$(DARK_PURPLE) $@'
-#					pactl set-sink-mute 0 false
-#					pactl set-sink-volume 0 +500%
+					pactl set-sink-mute 0 false
+					pactl set-sink-volume 0 +200%
 
 clean			:
 					$(MAKE) -C $(LIBFT_DIR) $@
@@ -71,4 +74,4 @@ re				:	fclean all
 
 # bonus			:	
 
-.PHONY			=	all clean fclean re#!/bin/bash
+.PHONY			=	all clean fclean re

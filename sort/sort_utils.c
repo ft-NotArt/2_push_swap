@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 06:04:45 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/15 18:40:35 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 19:19:26 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 bool	is_sorted(t_ps_list *list)
 {
-	t_ps_list *current = list ;
-	int value = current->value ;
+	t_ps_list	*current ;
+	int			value ;
 
+	current = list ;
+	value = current->value ;
 	while (current->next)
 	{
 		current = current->next;
@@ -25,11 +27,10 @@ bool	is_sorted(t_ps_list *list)
 		value = current->value;
 	}
 	return (true);
-	
-
 }
 
-int	set_offset(int size) //TODO: play with different n values to see what would be more efficient
+//TODO: play with different n values to see what would be more efficient
+int	set_offset(int size)
 {
 	if (size <= 5)
 		return (1);
@@ -61,5 +62,5 @@ int	lst_get_index(t_ps_list *list, int value)
 bool	chunk_part(int value, int *sorted_array, int start, int end)
 {
 	return (value >= sorted_array[start]
-			&& value <= sorted_array[end]);
+		&& value <= sorted_array[end]);
 }

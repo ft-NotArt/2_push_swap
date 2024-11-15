@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 02:42:07 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/14 06:51:28 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 19:19:42 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	swap(t_ps_list **top)
 		return ;
 	second = (*top)->next ;
 	(*top)->next = second->next ;
-	second->next = (*top) ;
+	second->next = (*top);
 	(*top) = second ;
 }
 

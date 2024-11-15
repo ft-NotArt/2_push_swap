@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 07:14:00 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/14 05:19:39 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 19:21:34 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -508,7 +508,7 @@ t_list		*ft_lstlast(t_list *lst);
  * @return The second to last node of the list
  * @author NotArt
  */
-t_list	*ft_lstsecond_to_last(t_list *lst);
+t_list		*ft_lstsecond_to_last(t_list *lst);
 
 /**
  * @name lstadd_back

@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 03:50:18 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/14 07:40:10 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 19:20:50 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static int	pars_only_numbers(int argc, char *argv[])
 	}
 	return (1);
 }
+
 static bool	is_int_len(char *nbr)
 {
 	int	size ;

@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 21:12:18 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/14 07:05:13 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 19:19:53 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void	rr(t_ps_list **top_a, t_ps_list **top_b)
 {
 	rotate(top_a);
 	rotate(top_b);
-	ft_printf("rr\n") ;
+	ft_printf("rr\n");
 }

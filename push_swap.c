@@ -6,13 +6,13 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 02:31:30 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/15 18:57:32 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 19:21:12 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	const int	nb_elem = argc - 1 ;
 	t_stacks	*stacks ;

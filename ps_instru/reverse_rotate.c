@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 22:00:14 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/14 07:03:56 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 19:20:10 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	reverse_rotate(t_ps_list **top)
 {
-	t_ps_list *second_to_last ;
+	t_ps_list	*second_to_last ;
 
 	if (!(*top) || !(*top)->next)
 		return ;
@@ -40,5 +40,5 @@ void	rrr(t_ps_list **top_a, t_ps_list **top_b)
 {
 	reverse_rotate(top_a);
 	reverse_rotate(top_b);
-	ft_printf("rrr\n") ;
+	ft_printf("rrr\n");
 }
