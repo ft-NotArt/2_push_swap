@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 02:31:42 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/15 18:40:53 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 19:01:41 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void		rrr(t_ps_list **top_a, t_ps_list **top_b);
 int			parsing(int argc, char *argv[]);
 
 t_stacks	*stacks_init(int argc, char *argv[]);
+void		set_start(t_stacks *stacks, int size, int offset);
+void		set_end(t_stacks *stacks, int size, int offset);
 void		stacks_free(t_stacks *stacks);
 
 t_ps_list	*ps_lstnew(int value);

@@ -115,12 +115,8 @@ static void	sort_by_chunks(t_stacks *stacks, int size)
 	int			to_start ;
 	int			to_end ;
 
-	stacks->start = (size / 2) - offset ;
-	if (stacks->start < 0)
-		stacks->start = 0 ;
-	stacks->end = (size / 2) + offset ;
-	if (stacks->end > (size - 1))
-		stacks->end = (size - 1);
+	set_start(stacks, size, offset);
+	set_end(stacks, size, offset);
 	to_start = (size / 2) ;
 	to_end = (size / 2) ;
 	while (stacks->a->next->next->next)

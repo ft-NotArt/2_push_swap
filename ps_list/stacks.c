@@ -6,11 +6,25 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 05:40:36 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/15 11:03:13 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 19:01:13 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	set_start(t_stacks *stacks, int size, int offset)
+{
+	stacks->start = (size / 2) - offset ;
+	if (stacks->start < 0)
+		stacks->start = 0 ;
+}
+
+void	set_end(t_stacks *stacks, int size, int offset)
+{
+	stacks->end = (size / 2) + offset ;
+	if (stacks->end > (size - 1))
+		stacks->end = (size - 1);
+}
 
 t_stacks	*stacks_init(int nb_elem, char *argv[])
 {
