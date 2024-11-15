@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 02:31:42 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/14 07:51:10 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 02:28:38 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,17 @@ void		rrr(t_ps_list **top_a, t_ps_list **top_b);
 int			parsing(int argc, char *argv[]);
 
 t_stacks	*stacks_init(int argc, char *argv[]);
+void		stacks_free(t_stacks *stacks);
 
 t_ps_list	*ps_lstnew(int value);
 int			ps_lstsize(t_ps_list *lst);
 t_ps_list	*ps_lstlast(t_ps_list *lst);
 t_ps_list	*ps_lstsecond_to_last(t_ps_list *lst);
 void		ps_lstadd_back(t_ps_list **lst, t_ps_list *new);
+void		ps_lstclear(t_ps_list **lst);
+
+int			*init_sorted_array(t_stacks *stacks, size_t size);
+
+void		magic_algorithm(t_stacks *stacks);
 
 #endif

@@ -36,7 +36,10 @@ FILES			=	push_swap						\
 					ps_list/ps_lstsecond_to_last	\
 					ps_list/ps_lstadd_back			\
 					ps_list/ps_lstclear				\
-					ps_list/stacks_init				\
+					ps_list/stacks					\
+\
+					sort/sort_array					\
+					sort/sort_stack					\
 \
 
 SRC				=	$(addsuffix .c, $(FILES))

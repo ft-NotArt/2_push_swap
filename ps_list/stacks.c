@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stacks_init.c                                      :+:      :+:    :+:   */
+/*   stacks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 05:40:36 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/14 07:23:08 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 01:46:12 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,11 @@ t_stacks	*stacks_init(int argc, char *argv[])
 	}
 	stacks->b = NULL ;
 	return (stacks);
+}
+
+void	stacks_free(t_stacks *stacks)
+{
+	ps_lstclear(&stacks->a);
+	ps_lstclear(&stacks->b);
+	free(stacks);
 }

@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 02:31:30 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/14 07:24:41 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/15 02:36:18 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,15 +117,19 @@ int main(int argc, char *argv[])
 
 	if (argc == 1)
 		return (0);
-	else
-	{
-		if (!parsing(argc, argv))
-			return (ft_printf("Error\a\n"), 1);
-		stacks = stacks_init(argc, argv);
-		if (!stacks)
-			return (1);
-		stacks_visu(stacks->a, stacks->b) ;
-		stacks_visu(stacks->a, stacks->b) ;
-	}
+	if (!parsing(argc, argv))
+		return (ft_printf("Error\a\n"), 1);
+	stacks = stacks_init(argc, argv);
+	if (!stacks)
+		return (1);
+	
+	stacks_visu(stacks->a, stacks->b) ;
+	
+	magic_algorithm(stacks);
+	
+	stacks_visu(stacks->a, stacks->b) ;
+
+
+	stacks_free(stacks);
 	return (0);
 }
