@@ -29,7 +29,7 @@ FILES			=	push_swap						\
 					ps_instru/rotate				\
 					ps_instru/reverse_rotate		\
 \
-					pars/pars 						\
+					ps_pars/pars 					\
 \
 					ps_list/ps_lstnew				\
 					ps_list/ps_lstsize				\
@@ -39,12 +39,12 @@ FILES			=	push_swap						\
 					ps_list/ps_lstclear				\
 					ps_list/stacks					\
 \
-					sort/sort_array					\
-					sort/sort_stack					\
-					sort/sort_stage_one				\
-					sort/sort_stage_two				\
-					sort/sort_stage_three			\
-					sort/sort_utils					\
+					ps_sort/sort_array				\
+					ps_sort/sort_stack				\
+					ps_sort/sort_stage_one			\
+					ps_sort/sort_stage_two			\
+					ps_sort/sort_stage_three		\
+					ps_sort/sort_utils				\
 \
 
 SRC				=	$(addsuffix .c, $(FILES))
@@ -54,12 +54,12 @@ CHECKER_FILES	=	ps_checker/checker				\
 \
 					ps_checker/get_next_line		\
 \
-					ps_instru/push					\
-					ps_instru/swap					\
-					ps_instru/rotate				\
-					ps_instru/reverse_rotate		\
+					ps_checker/check_push			\
+					ps_checker/check_swap			\
+					ps_checker/check_rotate			\
+					ps_checker/check_reverse_rotate	\
 \
-					pars/pars 						\
+					ps_pars/pars 					\
 \
 					ps_list/ps_lstnew				\
 					ps_list/ps_lstsize				\
@@ -69,8 +69,8 @@ CHECKER_FILES	=	ps_checker/checker				\
 					ps_list/ps_lstclear				\
 					ps_list/stacks					\
 \
-					sort/sort_array					\
-					sort/sort_utils					\
+					ps_sort/sort_array				\
+					ps_sort/sort_utils				\
 \
 
 CHECKER_SRC		=	$(addsuffix .c, $(CHECKER_FILES))
@@ -83,23 +83,25 @@ all				:	$(NAME)
 $(LIBFT_PATH)	:
 					$(MAKE) -C $(LIBFT_DIR) $(LIBFT) -j $$(nproc)
 
-$(NAME)			:	$(SRC) | $(LIBFT_PATH)
+$(NAME)			:	$(OBJ) | $(LIBFT_PATH)
 					$(CC) $(CFLAGS) $^ $(LIBFT_PATH) -o $@
 					echo -e '$(LIGHT_PURPLE) \tCompiled$(DARK_PURPLE) $@'
 					pactl set-sink-mute 0 false
 					pactl set-sink-volume 0 +50%
 
 clean			:
+					$(RM) $(OBJ) $(CHECKER_OBJ)
 					$(MAKE) -C $(LIBFT_DIR) $@
+					echo -e '$(LIGHT_PURPLE) \tCleaned$(PURPLE) $(OBJ) $(CHECKER_OBJ)'
 
-fclean			:
+fclean			:	clean
 					$(MAKE) -C $(LIBFT_DIR) $@
 					$(RM) $(NAME) $(CHECKER)
 					echo -e '$(LIGHT_PURPLE) \tCleaned$(DARK_PURPLE) $(NAME)'
 
 re				:	fclean all
 
-$(CHECKER)		:	$(CHECKER_SRC) | $(LIBFT_PATH)
+$(CHECKER)		:	$(CHECKER_OBJ) | $(LIBFT_PATH)
 					$(CC) $(CFLAGS) $^ $(LIBFT_PATH) -o $@
 					echo -e '$(LIGHT_PURPLE) \tCompiled$(DARK_PURPLE) $@'
 

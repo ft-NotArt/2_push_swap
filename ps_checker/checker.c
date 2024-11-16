@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 20:11:03 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/16 21:55:59 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/17 00:18:10 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,27 +59,27 @@ static bool	is_only_instructions(char *instructions)
 static void	choose_instruction(t_stacks *stacks, char *instructions)
 {
 	if (!ft_strncmp(instructions, "pa\n", 3))
-		pa(&stacks->b, &stacks->a);
+		check_pa(&stacks->b, &stacks->a);
 	if (!ft_strncmp(instructions, "pb\n", 3))
-		pb(&stacks->a, &stacks->b);
+		check_pb(&stacks->a, &stacks->b);
 	if (!ft_strncmp(instructions, "sa\n", 3))
-		sa(&stacks->a);
+		check_sa(&stacks->a);
 	if (!ft_strncmp(instructions, "sb\n", 3))
-		sb(&stacks->b);
+		check_sb(&stacks->b);
 	if (!ft_strncmp(instructions, "ss\n", 3))
-		ss(&stacks->a, &stacks->b);
+		check_ss(&stacks->a, &stacks->b);
 	if (!ft_strncmp(instructions, "ra\n", 3))
-		ra(&stacks->a);
+		check_ra(&stacks->a);
 	if (!ft_strncmp(instructions, "rb\n", 3))
-		rb(&stacks->b);
+		check_rb(&stacks->b);
 	if (!ft_strncmp(instructions, "rr\n", 3))
-		rr(&stacks->a, &stacks->b);
+		check_rr(&stacks->a, &stacks->b);
 	if (!ft_strncmp(instructions, "rra\n", 4))
-		rra(&stacks->a);
+		check_rra(&stacks->a);
 	if (!ft_strncmp(instructions, "rrb\n", 4))
-		rrb(&stacks->b);
+		check_rrb(&stacks->b);
 	if (!ft_strncmp(instructions, "rrr\n", 4))
-		rrr(&stacks->a, &stacks->b);
+		check_rrr(&stacks->a, &stacks->b);
 }
 
 static void	do_instructions(t_stacks *stacks, char *instructions)
