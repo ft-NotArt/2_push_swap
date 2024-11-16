@@ -8,6 +8,7 @@ DARK_GREEN		=	\x1b[1m\x1b[38;2;51;133;26m
 # TARGET
 
 NAME			=	push_swap
+CHECKER			=	checker
 
 LIBFT			=	libft.a
 LIBFT_DIR		=	libft
@@ -49,6 +50,32 @@ FILES			=	push_swap						\
 SRC				=	$(addsuffix .c, $(FILES))
 OBJ				=	$(addsuffix .o, $(FILES))
 
+CHECKER_FILES	=	ps_checker/checker				\
+\
+					ps_checker/get_next_line		\
+\
+					ps_instru/push					\
+					ps_instru/swap					\
+					ps_instru/rotate				\
+					ps_instru/reverse_rotate		\
+\
+					pars/pars 						\
+\
+					ps_list/ps_lstnew				\
+					ps_list/ps_lstsize				\
+					ps_list/ps_lstlast				\
+					ps_list/ps_lstsecond_to_last	\
+					ps_list/ps_lstadd_back			\
+					ps_list/ps_lstclear				\
+					ps_list/stacks					\
+\
+					sort/sort_array					\
+					sort/sort_utils					\
+\
+
+CHECKER_SRC		=	$(addsuffix .c, $(CHECKER_FILES))
+CHECKER_OBJ		=	$(addsuffix .o, $(CHECKER_FILES))
+
 # RULES
 
 all				:	$(NAME)
@@ -67,11 +94,15 @@ clean			:
 
 fclean			:
 					$(MAKE) -C $(LIBFT_DIR) $@
-					$(RM) $(NAME)
+					$(RM) $(NAME) $(CHECKER)
 					echo -e '$(LIGHT_PURPLE) \tCleaned$(DARK_PURPLE) $(NAME)'
 
 re				:	fclean all
 
-# bonus			:	
+$(CHECKER)		:	$(CHECKER_SRC) | $(LIBFT_PATH)
+					$(CC) $(CFLAGS) $^ $(LIBFT_PATH) -o $@
+					echo -e '$(LIGHT_PURPLE) \tCompiled$(DARK_PURPLE) $@'
 
-.PHONY			=	all clean fclean re
+bonus			:	$(CHECKER)
+
+.PHONY			=	all clean fclean re bonus
