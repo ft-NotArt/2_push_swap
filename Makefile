@@ -60,7 +60,7 @@ $(NAME)			:	$(SRC) | $(LIBFT_PATH)
 					$(CC) $(CFLAGS) $^ $(LIBFT_PATH) -o $@
 					echo -e '$(LIGHT_PURPLE) \tCompiled$(DARK_PURPLE) $@'
 					pactl set-sink-mute 0 false
-					pactl set-sink-volume 0 +200%
+					pactl set-sink-volume 0 +50%
 
 clean			:
 					$(MAKE) -C $(LIBFT_DIR) $@

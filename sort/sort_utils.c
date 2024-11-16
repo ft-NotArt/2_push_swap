@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 06:04:45 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/15 19:19:26 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/16 18:31:33 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,14 @@ bool	is_sorted(t_ps_list *list)
 	return (true);
 }
 
-//TODO: play with different n values to see what would be more efficient
 int	set_offset(int size)
 {
 	if (size <= 5)
 		return (1);
 	if (size <= 10)
-		return (5);
+		return (2);
 	if (size <= 150)
-		return (8);
+		return (10);
 	else
 		return (18);
 }

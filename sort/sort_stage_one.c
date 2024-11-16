@@ -6,7 +6,7 @@
 /*   By: anoteris <noterisarthur42@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 19:13:04 by anoteris          #+#    #+#             */
-/*   Updated: 2024/11/15 19:17:51 by anoteris         ###   ########.fr       */
+/*   Updated: 2024/11/16 18:03:36 by anoteris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ static void	push_node(t_stacks *stacks, int *to_start, int *to_end, int size)
 	{
 		pb(&stacks->a, &stacks->b);
 		if (chunk_part(stacks->b->value, stacks->sorted,
-				stacks->start, (stacks->start + stacks->end) / 2))
+				stacks->start, (stacks->start + stacks->end) / 2)
+				&& stacks->b->next)
 		{
 			(*to_start)-- ;
 			if (stacks->a && !chunk_part(stacks->a->value, stacks->sorted,
