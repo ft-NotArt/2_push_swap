@@ -3,7 +3,6 @@
 PURPLE			=	\x1b[0m\x1b[38;2;153;37;190m
 LIGHT_PURPLE	=	\x1b[0m\x1b[38;2;184;102;210m
 DARK_PURPLE		=	\x1b[1m\x1b[38;2;107;26;133m
-DARK_GREEN		=	\x1b[1m\x1b[38;2;51;133;26m
 
 # TARGET
 
@@ -91,11 +90,10 @@ $(NAME)			:	$(OBJ) | $(LIBFT_PATH)
 
 clean			:
 					$(RM) $(OBJ) $(CHECKER_OBJ)
-					$(MAKE) -C $(LIBFT_DIR) $@
+					$(MAKE) -C $(LIBFT_DIR) f$@
 					echo -e '$(LIGHT_PURPLE) \tCleaned$(PURPLE) $(OBJ) $(CHECKER_OBJ)'
 
 fclean			:	clean
-					$(MAKE) -C $(LIBFT_DIR) $@
 					$(RM) $(NAME) $(CHECKER)
 					echo -e '$(LIGHT_PURPLE) \tCleaned$(DARK_PURPLE) $(NAME)'
 
